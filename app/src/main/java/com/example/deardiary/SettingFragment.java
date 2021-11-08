@@ -7,17 +7,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.deardiary.R;
+import com.example.deardiary.databinding.FragmentSettingBinding;
 
 public class SettingFragment extends Fragment {
 
+    public FragmentSettingBinding binding;
+
     public SettingFragment(){}
 
-    private static class SettingFragmentHoler {
+    private static class SettingFragmentHolder {
         public static final SettingFragment INSTANCE = new SettingFragment();
     }
 
     public static SettingFragment newInstance() {
-        return SettingFragmentHoler.INSTANCE;
+        return SettingFragmentHolder.INSTANCE;
     }
 
     @Override
@@ -28,6 +31,8 @@ public class SettingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_setting, container, false);
+        binding = FragmentSettingBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
+        return view;
     }
 }
