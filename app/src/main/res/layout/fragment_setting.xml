@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="7"
-    tools:context=".SettingFragment">
+    tools:context=".SettingFragment"
+    android:padding="10dp">
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -47,8 +48,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="15dp"
         android:orientation="vertical">
         <TextView
             style="@style/txt_setting"
@@ -64,8 +63,6 @@
         android:layout_height="0dp"
         android:layout_weight="2"
         android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginBottom="10dp"
         android:orientation="vertical">
         <TextView
             style="@style/txt_setting"

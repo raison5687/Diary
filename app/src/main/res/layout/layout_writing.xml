@@ -38,8 +38,8 @@
                     android:orientation="horizontal"
                     android:padding="10dp">
                     <ImageView
-                        android:src="@drawable/ic_launcher_background"
                         android:layout_width="100dp"
+                        android:src="@drawable/ic_launcher_background"
                         android:layout_height="100dp" />
                 </LinearLayout>
         </HorizontalScrollView>
