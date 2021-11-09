@@ -15,14 +15,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent">
-            <EditText
-                android:background="@drawable/shape_group"
+<!--            글쓰기 제목 레이아웃 고쳐야 함-->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:lines="19"
-                android:gravity="top|left"
-                android:padding="30dp"
-                android:hint="글 쓰는 곳" />
+                android:orientation="vertical"
+                android:background="@drawable/shape_group" >
+                <EditText
+                    android:id="@+id/editTxt_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="제목"
+                    android:gravity="center"/>
+                <EditText
+                    android:id="@+id/editTxt_writing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lines="17"
+                    android:gravity="top|left"
+                    android:padding="30dp"
+                    android:hint="글 쓰는 곳" />
+            </LinearLayout>
         </ScrollView>
 
         <LinearLayout
@@ -42,41 +55,79 @@
                         android:orientation="horizontal"
                         android:padding="10dp">
                         <ImageView
+                            android:id="@+id/img_insertPic"
                             android:layout_width="100dp"
+                            android:scaleType="centerCrop"
                             android:src="@drawable/ic_launcher_background"
                             android:layout_height="100dp" />
                     </LinearLayout>
             </HorizontalScrollView>
         </LinearLayout>
 
-        <ImageView
+<!--        <ImageView-->
+<!--            android:id="@+id/btn_addPic"-->
+<!--            android:layout_width="55dp"-->
+<!--            android:layout_height="55dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/layout_picture" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/btn_tempSave"-->
+<!--            android:layout_width="55dp"-->
+<!--            android:layout_height="55dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/btn_save"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/layout_picture" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/btn_save"-->
+<!--            android:layout_width="55dp"-->
+<!--            android:layout_height="55dp"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/layout_picture" />-->
+
+
+        <!--        임시버튼-->
+        <Button
             android:id="@+id/btn_addPic"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:text="사진 첨부"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layout_picture" />
 
-        <ImageView
+        <Button
             android:id="@+id/btn_tempSave"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
+            android:text="임시 저장"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_save"
             app:layout_constraintTop_toBottomOf="@+id/layout_picture" />
 
-        <ImageView
+        <Button
             android:id="@+id/btn_save"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
+            android:text="저장"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layout_picture" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

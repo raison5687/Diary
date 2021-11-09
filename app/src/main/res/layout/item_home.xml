@@ -12,7 +12,7 @@
         android:orientation="horizontal"
         android:background="@drawable/shape_group"
         android:layout_margin="10dp"
-        android:weightSum="6">
+        android:weightSum="6" >
         <ImageView
             android:id="@+id/img_home"
             android:layout_width="0dp"
