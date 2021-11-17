@@ -7,16 +7,12 @@ import androidx.fragment.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.deardiary.R;
 import com.example.deardiary.databinding.FragmentSettingBinding;
 
 public class SettingFragment extends Fragment {
-
-    public FragmentSettingBinding binding;
-    final static int TAKE_PICTURE = 1;
-    String mCurrentPhotoPath;
-    final static int REQUEST_TAKE_PHOTO = 1;
 
     public SettingFragment(){}
 
@@ -34,39 +30,18 @@ public class SettingFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        binding = FragmentSettingBinding.inflate(inflater, container, false);
-        View view = binding.getRoot();
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_chat, container, false);
 
-//        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//            if(checkSelfPermission(Manifest.permission.CAMERA) ==
-//                    PackageManager.PERMISSION_GRANTED &&
-//                    checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
-//                            PackageManager.PERMISSION_GRANTED) {
-//                Log.d(TAG, "권한 설정 완료");
-//            } else {
-//                Log.d(TAG, "권한 설정 요청");
-//                FragmentManager.requestPermissions(SettingFragment.this, new String[]
-//                        {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-//            }
-//        }
-//
-//        binding.btnProfile.setOnTouchListener({
-//        @Override
-//        public void onTouch (View v){
-//            switch (v.getId()) {
-//                case btn_Profile:
-//                    Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-//                    startActivityForResult(cameraIntent, TAKE_PICTURE);
-//                    break;
-//            }
-//        }
-//        });
-//
-//        );
-
-
+        edit =(ImageView)view.findViewById(R.id.btn_edit);
+        profile = (ImageView)view.findViewById(R.id.btn_profile);
+        btnCapture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cInt = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cInt,Image_Capture_Code);
+            }
+        });
         return view;
     }
 
