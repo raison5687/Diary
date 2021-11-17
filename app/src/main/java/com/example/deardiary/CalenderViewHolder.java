@@ -12,6 +12,7 @@ public class CalenderViewHolder extends RecyclerView.ViewHolder implements View.
 
     public final TextView dayOfMonth;
     private final com.example.deardiary.CalenderAdapter.OnItemListener onItemListener;
+
     public CalenderViewHolder(@NonNull View itemView, com.example.deardiary.CalenderAdapter.OnItemListener onItemListener) {
         super(itemView);
         dayOfMonth = itemView.findViewById(R.id.txt_date);

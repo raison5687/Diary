@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -22,9 +23,6 @@
         app:itemIconTint="@drawable/item_nav_btn_style"
         app:itemTextColor="@drawable/item_nav_btn_style"
         app:itemRippleColor="@android:color/transparent"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginBottom="10dp"
-        android:elevation="3dp"
         app:menu="@menu/bottom_navigation" />
 
 </LinearLayout>

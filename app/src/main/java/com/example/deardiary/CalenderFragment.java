@@ -1,5 +1,6 @@
 package com.example.deardiary;
 
+import android.app.AlertDialog;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.deardiary.databinding.FragmentCalenderBinding;
 import com.example.deardiary.databinding.FragmentCalenderBinding;
@@ -26,10 +28,14 @@ import java.util.Date;
 public class CalenderFragment extends Fragment implements CalenderAdapter.OnItemListener {
 
     public FragmentCalenderBinding binding;
-
+    AlertDialog.Builder mbuilder;
+    View mView;
+    AlertDialog dialog;
     private TextView txt_monthYear;
     private RecyclerView calenderRecyclerview;
     private LocalDate selectedDate;
+    private int position;
+    private String dayText;
 
     public CalenderFragment() { }
 
@@ -45,12 +51,8 @@ public class CalenderFragment extends Fragment implements CalenderAdapter.OnItem
         setMonthView();
         binding.btnPre.setOnClickListener(v -> previousMonth());
         binding.btnNext.setOnClickListener(v -> NextMonth());
+        mbuilder = new AlertDialog.Builder(getContext());
         return view;
-    }
-
-    @Override
-    public void onItemClick(int position, String dayText) {
-
     }
 
 
@@ -105,7 +107,6 @@ public class CalenderFragment extends Fragment implements CalenderAdapter.OnItem
             {
                 daysInMonthArray.add(String.valueOf(i - dayOfWeek));
             }
-            Log.i("i=", String.valueOf(i));
         }
         return daysInMonthArray;
     }
@@ -130,5 +131,20 @@ public class CalenderFragment extends Fragment implements CalenderAdapter.OnItem
         setMonthView();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    public void onItemClick(int position, String dayText)
+    {
+        if(dayText.equals(""))
+        {
+            Toast.makeText(getContext(), "날짜를 정확히 터치해주세요", Toast.LENGTH_SHORT).show();
+        } else {
+            mView = getLayoutInflater().inflate(R.layout.dialog_palette, null);
+            mbuilder.setView(mView);
+            dialog = mbuilder.create();
+            dialog.show();
+        }
+
+    }
 
 }

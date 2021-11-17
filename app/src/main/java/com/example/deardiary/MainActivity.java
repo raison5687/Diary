@@ -13,9 +13,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
     private FragmentManager fragmentManager;
     private HomeFragment homeFragment;
-    private SettingFragment settingFragment;
+    private WritingFragment writingFragment;
     private CalenderFragment calenderFragment;
     private FragmentTransaction transaction;
+    private MyPageFragment myPageFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +24,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         homeFragment = HomeFragment.newInstance();
-        settingFragment = SettingFragment.newInstance();
+        writingFragment = WritingFragment.newInstance();
         calenderFragment = CalenderFragment.newInstance();
+        myPageFragment = MyPageFragment.newInstance();
 
         fragmentManager = getSupportFragmentManager();
         transaction = fragmentManager.beginTransaction();
@@ -48,8 +50,11 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.nav_calender:
                             transaction.replace(R.id.fragment_container, calenderFragment).commitAllowingStateLoss();
                             break;
-                        case R.id.nav_setting:
-                            transaction.replace(R.id.fragment_container, settingFragment).commitAllowingStateLoss();
+                        case R.id.nav_writing:
+                            transaction.replace(R.id.fragment_container, writingFragment).commitAllowingStateLoss();
+                            break;
+                        case R.id.nav_mypage:
+                            transaction.replace(R.id.fragment_container, myPageFragment).commitAllowingStateLoss();
                             break;
                     }
                     return true;

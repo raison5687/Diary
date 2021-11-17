@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CalenderFragment">
+    tools:context=".CalenderFragment"
+    android:background="@color/background_color">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,25 +42,25 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            style="@style/txt_setting"
+            style="@style/txt_week"
             android:text="일"/>
         <TextView
-            style="@style/txt_setting"
+            style="@style/txt_week"
             android:text="월"/>
         <TextView
-            style="@style/txt_setting"
+            style="@style/txt_week"
             android:text="화"/>
         <TextView
-            style="@style/txt_setting"
+            style="@style/txt_week"
             android:text="수"/>
         <TextView
-            style="@style/txt_setting"
+            style="@style/txt_week"
             android:text="목"/>
         <TextView
-            style="@style/txt_setting"
+            style="@style/txt_week"
             android:text="금"/>
         <TextView
-            style="@style/txt_setting"
+            style="@style/txt_week"
             android:text="토"/>
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView

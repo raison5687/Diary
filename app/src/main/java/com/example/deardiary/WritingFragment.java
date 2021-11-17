@@ -8,37 +8,54 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
-import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
-import com.example.deardiary.databinding.LayoutWritingBinding;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
-public class WriteActivity extends AppCompatActivity {
-    private LayoutWritingBinding binding;
+import com.example.deardiary.databinding.FragmentWritingBinding;
+
+import static android.app.Activity.RESULT_OK;
+
+public class WritingFragment extends Fragment {
+
+    public FragmentWritingBinding binding;
     Uri picture;
 
+    public WritingFragment(){}
+
+    private static class SettingFragmentHolder {
+        public static final WritingFragment INSTANCE = new WritingFragment();
+    }
+
+    public static WritingFragment newInstance() {
+        return SettingFragmentHolder.INSTANCE;
+    }
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = LayoutWritingBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+    }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        binding = FragmentWritingBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
         binding.btnAddPic.setOnClickListener(v -> addPic());
-//        binding.btnSave.setOnClickListener(v -> save());
-        binding.btnTempSave.setOnClickListener(v -> saveTemp());
-
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) !=
+        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE) !=
                 PackageManager.PERMISSION_GRANTED) {
             requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE);
         }
+        return view;
     }
 
     ActivityResultLauncher<Intent> resultLauncher =
@@ -58,10 +75,10 @@ public class WriteActivity extends AppCompatActivity {
     private ActivityResultLauncher<String> requestPermissionLauncher =
             registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
                 if (isGranted) {
-                    Toast.makeText(this, "권한이 설정되었습니다", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "권한이 설정되었습니다", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(this, "권한이 설정되지 않았습니다. 권한이 없으므로 앱을 종료합니다", Toast.LENGTH_SHORT).show();
-                    finish();
+                    Toast.makeText(getContext(), "권한이 설정되지 않았습니다. 권한이 없으므로 앱을 종료합니다", Toast.LENGTH_SHORT).show();
+//                    finish();
                 }
             });
 
@@ -74,7 +91,7 @@ public class WriteActivity extends AppCompatActivity {
     private Bitmap loadBitmap(Uri uri) {
         String[] filePathColumn = {MediaStore.Images.Media.DATA};
 
-        Cursor cursor = getContentResolver().query(uri,
+        Cursor cursor = getActivity().getContentResolver().query(uri,
                 filePathColumn, null, null, null);
         cursor.moveToFirst();
 
@@ -85,37 +102,4 @@ public class WriteActivity extends AppCompatActivity {
         return BitmapFactory.decodeFile(picturePath);
     }
 
-//    public void save() {
-//
-//        Intent intent = new Intent(this, HomeFragment.class);
-//
-//        String content = binding.editTxtTitle.getText().toString();
-//        intent.putExtra("content", content);
-//
-//        String title = binding.editTxtWriting.getText().toString();
-//        intent.putExtra("title", title);
-//
-//        intent.putExtra("date", System.currentTimeMillis());
-//
-//        intent.putExtra("picture", picture);
-//
-//        startActivity(intent);
-//
-//    }
-
-    public void saveTemp() {
-        Intent intent = new Intent(this, SaveTempActivity.class);
-
-//        String content = binding.editTxtWriting.getText().toString();
-//        intent.putExtra("content", content);
-//
-//        String name = binding.editTextName.getText().toString();
-//        intent.putExtra("name", name);
-//
-//        intent.putExtra("picture", picture);
-
-        startActivity(intent);
-    }
-
-//    public void
 }
