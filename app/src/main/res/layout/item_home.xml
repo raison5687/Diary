@@ -5,53 +5,44 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/item_home"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="400dp"
         android:orientation="horizontal"
         android:background="@drawable/shape_group"
-        android:layout_margin="10dp"
-        android:weightSum="6" >
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="10dp">
         <ImageView
-            android:id="@+id/img_home"
-            android:layout_width="0dp"
+            android:id="@+id/img"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/shape_circle"
-            android:layout_margin="10dp"
-            android:layout_weight="2"/>
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:id="@+id/txt_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="날짜"
+            android:textColor="@color/black"/>
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="180dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:orientation="vertical">
+            android:background="@drawable/shape_group"
+            android:orientation="vertical"
+            android:layout_alignParentRight="true">
             <TextView
                 android:id="@+id/txt_title"
-                style="@style/txt_item_home"
-                android:text="제목"/>
-            <TextView
-                android:id="@+id/txt_date"
-                style="@style/txt_item_home"
-                android:text="YYYY/MM/DD"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="제목"
+                android:textColor="@color/black"/>
             <TextView
                 android:id="@+id/txt_content"
-                style="@style/txt_item_home"
-                android:text="내용"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="내용"
+                android:textColor="@color/black"/>
         </LinearLayout>
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1">
-            <ImageView
-                android:id="@+id/btn_edit"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@drawable/btn_edit"
-                android:layout_gravity="right"
-                android:clickable="true"
-                android:layout_marginTop="5dp" />
-        </FrameLayout>
-    </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>

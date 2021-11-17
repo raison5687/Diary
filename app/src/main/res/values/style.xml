@@ -34,8 +34,48 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:gravity">center</item>
     </style>
+    <style name="btn_item_calender">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+    </style>
+    <style name="txt_item_calender">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
 
-
+    <!--dialog_palette-->
+    <style name="layout_horizontal_palette">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingLeft">30dp</item>
+        <item name="android:paddingRight">30dp</item>
+        <item name="android:weightSum">4</item>
+        <item name="android:layout_marginTop">20dp</item>
+    </style>
+    <style name="txt_dialog_palette">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+    </style>
+    <style name="btn_select_color">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
 
 
 </resources>

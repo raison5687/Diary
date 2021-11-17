@@ -43,7 +43,6 @@ public class HomeFragment extends Fragment {
     {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
-        binding.btnWrite.setOnClickListener(v -> write());
         return view;
 //
 //        String title = this.getArguments().getString("title");
@@ -66,11 +65,6 @@ public class HomeFragment extends Fragment {
     }
 
 
-    public void write()
-    {
-        Intent intent = new Intent(getActivity(), WriteActivity.class);
-        startActivity(intent);
-    }
 //
 //    private Bitmap loadBitmap(Uri uri) {
 //        String[] filePathColumn = {MediaStore.Images.Media.DATA};
