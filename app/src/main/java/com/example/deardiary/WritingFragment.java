@@ -1,7 +1,11 @@
 package com.example.deardiary;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -11,6 +15,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,17 +53,11 @@ public class WritingFragment extends Fragment {
 
         return view;
     }
-
-    private ActivityResultLauncher<String> requestPermissionLauncher =
-            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted ->
-            {
-                if (isGranted) {
-                    Toast.makeText(getContext(), "권한이 설정되었습니다", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getContext(), "권한이 설정되지 않았습니다, 권한이 없으므로 앱을 종료합니다.", Toast.LENGTH_SHORT).show();
-                    getActivity().finish();
-                }
-            });
+    private void add(){
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        resultLauncher.launch(intent);
+    }
 
     ActivityResultLauncher<Intent> resultLauncher =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
@@ -65,18 +65,31 @@ public class WritingFragment extends Fragment {
                 if (result.getResultCode() == RESULT_OK && null != data) {
                     Uri selectedImage = data.getData();
                     Bitmap bitmap = loadBitmap(selectedImage);
-                    binding.img1.setImageResource(bitmap);
-                    binding.img1.setVisibility(View.VISIBLE);
-                    
+                    if(binding.img1.getVisibility() != View.VISIBLE) {
+                        binding.img1.setImageBitmap(bitmap);
+                        binding.img1.setVisibility(View.VISIBLE);
+                    } else if(binding.img2.getVisibility() != View.VISIBLE) {
+                        binding.img2.setImageBitmap(bitmap);
+                        binding.img2.setVisibility(View.VISIBLE);
+                    } else {
+                        binding.img3.setImageBitmap(bitmap);
+                        binding.img3.setVisibility(View.VISIBLE);
+                    }
                 }
-
-
             });
 
-    private void add(){
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
-        resultLauncher.launch(intent);
+    private Bitmap loadBitmap(Uri uri) {
+        String[] filePathColumn = {MediaStore.Images.Media.DATA};
+        Cursor cursor = getActivity().getContentResolver().query(uri,
+                filePathColumn, null, null, null);
+        cursor.moveToFirst();
+
+        int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+        String picturePath = cursor.getString(columnIndex);
+        cursor.close();
+
+        return BitmapFactory.decodeFile(picturePath);
     }
+
 
 }
