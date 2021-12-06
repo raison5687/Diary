@@ -32,7 +32,8 @@
             <TextView
                 android:id="@+id/btn_red"
                 style="@style/btn_select_color"
-                android:background="@drawable/circle_red"/>
+                android:background="@drawable/selecter_circle"
+                android:backgroundTint="@color/circle_red_selected"/>
         </LinearLayout>
         <TextView
             style="@style/txt_dialog_palette"
@@ -44,7 +45,8 @@
             <TextView
                 android:id="@+id/btn_yellow"
                 style="@style/btn_select_color"
-                android:background="@drawable/circle_yellow"/>
+                android:background="@drawable/selecter_circle"
+                android:backgroundTint="@color/circle_yellow_selected"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -59,7 +61,8 @@
             <TextView
                 android:id="@+id/btn_gray"
                 style="@style/btn_select_color"
-                android:background="@drawable/circle_gray"/>
+                android:background="@drawable/selecter_circle"
+                android:backgroundTint="@color/circle_gray_selected"/>
         </LinearLayout>
         <TextView
             style="@style/txt_dialog_palette"
@@ -71,7 +74,8 @@
             <TextView
                 android:id="@+id/btn_green"
                 style="@style/btn_select_color"
-                android:background="@drawable/circle_green"/>
+                android:background="@drawable/selecter_circle"
+                android:backgroundTint="@color/circle_green_selected"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -86,7 +90,8 @@
             <TextView
                 android:id="@+id/btn_bisque"
                 style="@style/btn_select_color"
-                android:background="@drawable/circle_bisque"/>
+                android:background="@drawable/selecter_circle"
+                android:backgroundTint="@color/circle_bisque_selected"/>
         </LinearLayout>
         <TextView
             style="@style/txt_dialog_palette"
@@ -98,12 +103,13 @@
             <TextView
                 android:id="@+id/btn_blue"
                 style="@style/btn_select_color"
-                android:background="@drawable/circle_blue"/>
+                android:background="@drawable/selecter_circle"
+                android:backgroundTint="@color/circle_blue_selected"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
         style="@style/layout_horizontal_palette"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="10dp">
         <TextView
             style="@style/txt_dialog_palette"
             android:text="지침"/>
@@ -114,7 +120,8 @@
             <TextView
                 android:id="@+id/btn_pink"
                 style="@style/btn_select_color"
-                android:background="@drawable/circle_pink"/>
+                android:background="@drawable/selecter_circle"
+                android:backgroundTint="@color/circle_pink_selected"/>
         </LinearLayout>
         <TextView
             style="@style/txt_dialog_palette"
@@ -126,9 +133,22 @@
             <TextView
                 android:id="@+id/btn_darkblue"
                 style="@style/btn_select_color"
-                android:background="@drawable/circle_darkblue"/>
+                android:background="@drawable/selecter_circle"
+                android:backgroundTint="@color/circle_dark_blue_selected"/>
         </LinearLayout>
     </LinearLayout>
-
-
+    <FrameLayout
+        style="@style/layout_horizontal_palette"
+        android:layout_marginBottom="20dp">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@android:color/transparent"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/check"
+            android:layout_gravity="center"/>
+    </FrameLayout>
 </LinearLayout>

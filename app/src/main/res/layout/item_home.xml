@@ -1,48 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <RelativeLayout
-        android:id="@+id/item_home"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:orientation="horizontal"
-        android:background="@drawable/shape_group"
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="10dp">
-        <ImageView
-            android:id="@+id/img"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_color">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="350dp"
+        android:layout_height="630dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerInParent="true"/>
-        <TextView
-            android:id="@+id/txt_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="날짜"
-            android:textColor="@color/black"/>
-        <LinearLayout
-            android:layout_width="180dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/shape_group"
             android:orientation="vertical"
-            android:layout_alignParentRight="true">
+            android:weightSum="6">
             <TextView
-                android:id="@+id/txt_title"
+                android:id="@+id/txt_homeDate"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="제목"
-                android:textColor="@color/black"/>
-            <TextView
-                android:id="@+id/txt_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="2021.11.19"
+                android:textSize="45sp"
+                android:gravity="bottom|center"
+                android:paddingBottom="7dp" />
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="내용"
-                android:textColor="@color/black"/>
+                android:layout_height="0dp"
+                android:layout_weight="3.5"
+                android:orientation="vertical" >
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="30dp">
+                    <ImageView
+                        android:id="@+id/img_homePic"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_launcher_background"
+                        android:scaleType="centerCrop"/>
+                </ScrollView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.5"
+                android:orientation="vertical"
+                android:weightSum="3"
+                android:padding="15dp">
+                <TextView
+                    android:id="@+id/txt_homeTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:hint="쓴 제목 불러오기"
+                    android:gravity="bottom|center"/>
+                <TextView
+                    android:id="@+id/txt_homeContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:hint="쓴 내용 불러오기"
+                    android:textAlignment="center"
+                    android:layout_marginTop="10dp"
+                    android:lines="5"/>
+            </LinearLayout>
         </LinearLayout>
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-</LinearLayout>

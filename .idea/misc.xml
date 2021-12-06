@@ -3,19 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="..\:/Users/sungj/mobile/Diary/app/src/main/res/layout/fragment_mypage.xml" value="0.2536231884057971" />
+=======
+        <entry key="..\:/Users/LEESEUNGHYUN/AndroidStudioProjects/DearDiary/app/src/main/res/layout/dialog_palette.xml" value="0.2692502532928065" />
+        <entry key="..\:/Users/LEESEUNGHYUN/AndroidStudioProjects/DearDiary/app/src/main/res/layout/fragment_writing.xml" value="0.2692502532928065" />
+>>>>>>> d7f4fc3d55a1025514bb7e779259986d7c95c413
         <entry key="app/src/main/res/drawable-v24/shape_group.xml" value="0.2194871794871795" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/dialog_palette.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_calender.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.20677083333333332" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/fragment_mypage.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/fragment_writing.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/insurance_writing.xml" value="0.20677083333333332" />
         <entry key="app/src/main/res/layout/item_calender.xml" value="0.20677083333333332" />
         <entry key="app/src/main/res/layout/item_home.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/item_writing.xml" value="0.20677083333333332" />
         <entry key="app/src/main/res/layout/layout_savetemp.xml" value="0.20677083333333332" />
         <entry key="app/src/main/res/layout/layout_writing.xml" value="0.20677083333333332" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

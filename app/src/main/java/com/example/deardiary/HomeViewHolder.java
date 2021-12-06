@@ -15,9 +15,9 @@ public class HomeViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     private final com.example.deardiary.HomeAdapter.OnItemListener onItemListener;
     public HomeViewHolder(@NonNull View itemView, com.example.deardiary.HomeAdapter.OnItemListener onItemListener) {
         super(itemView);
-        postTitle = itemView.findViewById(R.id.txt_title);
+        postTitle = itemView.findViewById(R.id.txt_homeTitle);
         postDate = itemView.findViewById(R.id.txt_date);
-        postContent = itemView.findViewById(R.id.txt_content);
+        postContent = itemView.findViewById(R.id.txt_homeContent);
 
         this.onItemListener = onItemListener;
         itemView.setOnClickListener(this);

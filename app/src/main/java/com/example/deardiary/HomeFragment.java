@@ -44,7 +44,7 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         return view;
-//
+
 //        String title = this.getArguments().getString("title");
 //        String content = this.getArguments().getString("content");
 

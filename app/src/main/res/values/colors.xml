@@ -8,12 +8,22 @@
     <color name="dark_gray">#707070</color>
     <color name="txt_color">#000000</color>
 
-    <color name="red">#ff0000</color>
-    <color name="yellow">#ffff00</color>
-    <color name="pink">#FF98CE</color>
-    <color name="blue">#2a9df4</color>
-    <color name="dark_blue">#03254c</color>
-    <color name="green">#149414</color>
-    <color name="gray">#A9A9A9</color>
-    <color name="bisque">#FFE4C4</color>
+    <color name="red">#FF8888</color>
+    <color name="yellow">#F8F899</color>
+    <color name="pink">#FF93E6</color>
+    <color name="blue">#A0DEFF</color>
+    <color name="dark_blue">#A7AEFF</color>
+    <color name="green">#A2F0A8</color>
+    <color name="gray">#A5A5A5</color>
+    <color name="bisque">#FFB936</color>
+
+    <!--Circle color selected-->
+    <color name="red_selected">#FF5A5A</color>
+    <color name="yellow_selected">#F4EE64</color>
+    <color name="pink_selected">#F86CD8</color>
+    <color name="blue_selected">#75BFE6</color>
+    <color name="dark_blue_selected">#828AE2</color>
+    <color name="green_selected">#84DB8B</color>
+    <color name="gray_selected">#6F6F6F</color>
+    <color name="bisque_selected">#EA9F12</color>
 </resources>

@@ -1,5 +1,7 @@
 package com.example.deardiary;
 
+import android.content.Intent;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +13,23 @@ import java.util.ArrayList;
 
 public class CalenderAdapter extends RecyclerView.Adapter<CalenderViewHolder> {
 
-    public final ArrayList<String> dateOfMonth;
+    public final ArrayList<Item> dateOfMonth;
     public final OnItemListener onItemListener;
+    String selectedColor;
 
 
-    public CalenderAdapter(ArrayList<String> dateOfMonth, OnItemListener onItemListener) {
+    public CalenderAdapter(ArrayList<Item> dateOfMonth, OnItemListener onItemListener, String red) {
+        this.selectedColor = selectedColor;
         this.dateOfMonth = dateOfMonth;
         this.onItemListener = onItemListener;
+    }
+    public static class Item{
+        String dateOfMonth;
+        boolean isRed;
+        public Item(String dateOfMonth, boolean isRed) {
+            this.dateOfMonth = dateOfMonth;
+            this.isRed = isRed;
+        }
     }
 
     @NonNull
@@ -32,7 +44,12 @@ public class CalenderAdapter extends RecyclerView.Adapter<CalenderViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CalenderViewHolder holder, int position) {
-        holder.dayOfMonth.setText(dateOfMonth.get(position));
+        Item item = dateOfMonth.get(position);
+        holder.dayOfMonth.setText(item.dateOfMonth);
+        if (item.isRed) {
+            holder.red.setVisibility(View.VISIBLE);
+        }else
+            holder.red.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -41,6 +58,6 @@ public class CalenderAdapter extends RecyclerView.Adapter<CalenderViewHolder> {
     }
 
     public interface OnItemListener {
-        void onItemClick(int position, String dayText);
+        void onItemClick(int position, String dayText, String selectedColor);
     }
 }
