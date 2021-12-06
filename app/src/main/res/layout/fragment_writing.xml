@@ -65,13 +65,13 @@
                 android:layout_weight="0.5"
                 android:orientation="horizontal">
                 <Button
-                    android:id="@+id/btn_writingSave"
+                    android:id="@+id/btn_writingPlus"
                     android:layout_width="50dp"
                     android:layout_height="50dp" 
                     android:text="+"
                     android:textSize="20sp" />
                 <Button
-                    android:id="@+id/btn_writingPlus"
+                    android:id="@+id/btn_writingSave"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:text="o"
