@@ -8,20 +8,17 @@
 =======
         <entry key="..\:/Users/LEESEUNGHYUN/AndroidStudioProjects/DearDiary/app/src/main/res/layout/dialog_palette.xml" value="0.2692502532928065" />
         <entry key="..\:/Users/LEESEUNGHYUN/AndroidStudioProjects/DearDiary/app/src/main/res/layout/fragment_writing.xml" value="0.2692502532928065" />
+<<<<<<< HEAD
+        <entry key="..\:/Users/LEESEUNGHYUN/AndroidStudioProjects/DearDiary/app/src/main/res/layout/item_writing.xml" value="0.5536458333333333" />
+=======
 >>>>>>> d7f4fc3d55a1025514bb7e779259986d7c95c413
+>>>>>>> 28540eb89a4d2603242f22cc4d719355c248703f
         <entry key="app/src/main/res/drawable-v24/shape_group.xml" value="0.2194871794871795" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.20677083333333332" />
-        <entry key="app/src/main/res/layout/dialog_palette.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_calender.xml" value="0.20677083333333332" />
-        <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.20677083333333332" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.20677083333333332" />
-        <entry key="app/src/main/res/layout/fragment_mypage.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.20677083333333332" />
-        <entry key="app/src/main/res/layout/fragment_writing.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/insurance_writing.xml" value="0.20677083333333332" />
         <entry key="app/src/main/res/layout/item_calender.xml" value="0.20677083333333332" />
         <entry key="app/src/main/res/layout/item_home.xml" value="0.20677083333333332" />
-        <entry key="app/src/main/res/layout/item_writing.xml" value="0.20677083333333332" />
         <entry key="app/src/main/res/layout/layout_savetemp.xml" value="0.20677083333333332" />
         <entry key="app/src/main/res/layout/layout_writing.xml" value="0.20677083333333332" />
       </map>
