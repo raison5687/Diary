@@ -4,11 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/shape_group.xml" value="0.2194871794871795" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/dialog_palette.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_calender.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.20677083333333332" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/fragment_mypage.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/fragment_writing.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/insurance_writing.xml" value="0.20677083333333332" />
         <entry key="app/src/main/res/layout/item_calender.xml" value="0.20677083333333332" />
         <entry key="app/src/main/res/layout/item_home.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/item_writing.xml" value="0.20677083333333332" />
         <entry key="app/src/main/res/layout/layout_savetemp.xml" value="0.20677083333333332" />
         <entry key="app/src/main/res/layout/layout_writing.xml" value="0.20677083333333332" />
       </map>
