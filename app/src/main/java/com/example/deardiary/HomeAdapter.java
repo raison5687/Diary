@@ -15,7 +15,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeViewHolder> {
     public final HomeAdapter.OnItemListener onItemListener;
 
     public HomeAdapter(ArrayList<String> postTitle, HomeAdapter.OnItemListener onItemListener) {
-
         this.postTitle = postTitle;
         this.onItemListener = onItemListener;
     }

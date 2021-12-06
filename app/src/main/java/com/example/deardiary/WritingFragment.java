@@ -3,6 +3,7 @@ package com.example.deardiary;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -11,10 +12,10 @@ import android.view.ViewGroup;
 
 import com.example.deardiary.databinding.FragmentWritingBinding;
 
+import java.util.ArrayList;
+
 public class WritingFragment extends Fragment {
-    private RecyclerView writingRecyclerView;
     public FragmentWritingBinding binding;
-    WritingAdapter writingAdapter;
 
     public WritingFragment(){}
 
@@ -36,8 +37,7 @@ public class WritingFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentWritingBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
-
-        writingAdapter = new WritingAdapter();
+//        binding.btnWritingSave.setOnClickListener(v -> save());
 
         return view;
     }
