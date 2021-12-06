@@ -14,6 +14,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -76,9 +78,25 @@ public class MyPageFragment extends Fragment {
 
 
         binding.btnImage.setOnClickListener( v -> getImage());
+        binding.btnName.setOnClickListener( v -> nameClick());
+        binding.btnNote.setOnClickListener( v -> noteClick());
 
         return view;
     }
+
+    public void nameClick(){
+//        String name = binding.txtName.setText();
+//        if(){
+//
+//            binding.btnName.setText("편집");
+//        }
+//        binding.btnName.setText("편집");
+    }
+
+    public void noteClick(){
+        binding.btnNote.setText("편집");
+    }
+
 
     public void getImage(){
 
