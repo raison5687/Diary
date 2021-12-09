@@ -33,6 +33,7 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -76,9 +77,13 @@ public class WritingFragment extends Fragment {
         View view = binding.getRoot();
         binding.btnWritingSave.setOnClickListener(v -> save());
         binding.btnWritingPlus.setOnClickListener(v -> add());
-        binding.btnWritingSave.setOnClickListener(v -> save());
-        String jsonString =  readFile(getContext(), "Diaryfile.json");
-        data = new Gson().fromJson(jsonString, new TypeToken<ArrayList<DiaryModel>>(){}.getType());
+        String path = "/data/data/com.example.deardiary/files/Diaryfile.json";
+        if(new File(path).exists()) {
+            String jsonString = readFile(getContext(), "Diaryfile.json");
+            data = new Gson().fromJson(jsonString, new TypeToken<ArrayList<DiaryModel>>() {
+            }.getType());
+        }
+
         return view;
     }
     private void add(){
@@ -138,17 +143,8 @@ public class WritingFragment extends Fragment {
         DiaryModel model = new DiaryModel(title, content, img1, img2, img3, date);
         this.data.add(model);
         try {
-//            Map<String, Object> map = new HashMap<>();
-//            map.put("title", title);
-//            map.put("content", content);
-//            map.put("img1", img1);
-//            map.put("img2", img2);
-//            map.put("img3", img3);
-//            map.put("date", date);
-
             String jsonString = new Gson().toJson(data);
             writeFile(getContext(), "Diaryfile.json", jsonString);
-
         } catch (Exception e) {
             Toast.makeText(getContext(), "파일을 못찾음", Toast.LENGTH_LONG).show();
         }
