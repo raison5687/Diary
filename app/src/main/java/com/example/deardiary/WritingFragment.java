@@ -49,11 +49,8 @@ public class WritingFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentWritingBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
-<<<<<<< HEAD
         binding.btnWritingSave.setOnClickListener(v -> save());
-=======
         binding.btnWritingPlus.setOnClickListener(v -> add());
->>>>>>> 0cb614e2a0eb4afe123f14c394a65e1a9f6c50ab
 
         return view;
     }

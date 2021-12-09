@@ -1,0 +1,18 @@
+[
+  {
+    "date": "11/12/13",
+    "title": "일기 제목",
+    "content": "일기 쓴 내용",
+    "img1": "https://bookthumb-phinf.pstatic.net/cover/071/027/07102772.jpg?type=m1&udate=20210728",
+    "img2": "https://bookthumb-phinf.pstatic.net/cover/071/027/07102772.jpg?type=m1&udate=20210728",
+    "img3": "https://bookthumb-phinf.pstatic.net/cover/071/027/07102772.jpg?type=m1&udate=20210728"
+  },
+  {
+    "date": "11/12/14",
+    "title": "일기 제목",
+    "content": "일기 쓴 내용",
+    "img1": "https://bookthumb-phinf.pstatic.net/cover/071/027/07102772.jpg?type=m1&udate=20210728",
+    "img2": "https://bookthumb-phinf.pstatic.net/cover/071/027/07102772.jpg?type=m1&udate=20210728",
+    "img3": "https://bookthumb-phinf.pstatic.net/cover/071/027/07102772.jpg?type=m1&udate=20210728"
+  }
+]
