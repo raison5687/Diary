@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,6 +26,9 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.Target;
 import com.example.deardiary.databinding.FragmentMypageBinding;
 
 import static android.app.Activity.RESULT_OK;
@@ -58,6 +62,8 @@ public class MyPageFragment extends Fragment {
         binding = FragmentMypageBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
+
+
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE) !=
                 PackageManager.PERMISSION_GRANTED){
             requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE);
@@ -76,13 +82,13 @@ public class MyPageFragment extends Fragment {
             }
         }
 
-
         binding.btnImage.setOnClickListener( v -> getImage());
         binding.btnName.setOnClickListener( v -> nameClick());
         binding.btnNote.setOnClickListener( v -> noteClick());
 
         return view;
     }
+
 
     public void nameClick(){
 //        String name = binding.txtName.setText();
@@ -103,6 +109,7 @@ public class MyPageFragment extends Fragment {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
         resultLauncher.launch(intent);
+
 
         switch (R.id.btn_image) {
             case R.id.btn_image:
@@ -130,8 +137,14 @@ public class MyPageFragment extends Fragment {
 
                         if (result.getResultCode() == RESULT_OK && null != data) {
                             Uri selectedImage = data.getData();
-                            Bitmap bitmap = loadBitmap(selectedImage);
-                            binding.imageView.setImageBitmap(bitmap);
+                            Glide.with(this).load(selectedImage).apply(RequestOption().circleCrop()).into(binding.imageView);
+
+                            // Bitmap bitmap = loadBitmap(selectedImage);
+                            // Glide.with(this)
+                            //         .load(selectedImage)
+                            //         .circleCrop()
+                            //         .into(binding.imageView);
+//                            binding.imageView.setImageBitmap(bitmap);
                         }
                     });
 
@@ -140,7 +153,11 @@ public class MyPageFragment extends Fragment {
         Cursor cursor = getActivity().getContentResolver().query(uri,
                 filePathColumn, null, null, null);
         cursor.moveToFirst();
-
+//        Glide.with(this).load(uri).apply(RequestOptions.circleCropTransform()).into(binding.imageView);
+//        Glide.with(this)
+//                .load(uri)
+//                .circleCrop()
+//                .into(binding.imageView);
         int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
         String picturePath = cursor.getString(columnIndex);
         cursor.close();
