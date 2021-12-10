@@ -137,14 +137,13 @@ public class MyPageFragment extends Fragment {
 
                         if (result.getResultCode() == RESULT_OK && null != data) {
                             Uri selectedImage = data.getData();
-                            Glide.with(this).load(selectedImage).apply(RequestOption().circleCrop()).into(binding.imageView);
 
-                            // Bitmap bitmap = loadBitmap(selectedImage);
-                            // Glide.with(this)
-                            //         .load(selectedImage)
-                            //         .circleCrop()
-                            //         .into(binding.imageView);
-//                            binding.imageView.setImageBitmap(bitmap);
+                            Bitmap bitmap = loadBitmap(selectedImage);
+                            Glide.with(this)
+                                    .load(selectedImage)
+                                    .circleCrop()
+                                    .into(binding.imageView);
+                            binding.imageView.setImageBitmap(bitmap);
                         }
                     });
 
@@ -153,11 +152,6 @@ public class MyPageFragment extends Fragment {
         Cursor cursor = getActivity().getContentResolver().query(uri,
                 filePathColumn, null, null, null);
         cursor.moveToFirst();
-//        Glide.with(this).load(uri).apply(RequestOptions.circleCropTransform()).into(binding.imageView);
-//        Glide.with(this)
-//                .load(uri)
-//                .circleCrop()
-//                .into(binding.imageView);
         int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
         String picturePath = cursor.getString(columnIndex);
         cursor.close();
