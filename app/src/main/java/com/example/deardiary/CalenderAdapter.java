@@ -13,23 +13,16 @@ import java.util.ArrayList;
 
 public class CalenderAdapter extends RecyclerView.Adapter<CalenderViewHolder> {
 
-    public final ArrayList<Item> dateOfMonth;
+    public final ArrayList<String> dateOfMonth;
     public final OnItemListener onItemListener;
-    String selectedColor;
+    public ColorModel selectedcolor;
+    public CalenderViewHolder myholder;
 
 
-    public CalenderAdapter(ArrayList<Item> dateOfMonth, OnItemListener onItemListener, String red) {
-        this.selectedColor = selectedColor;
+    public CalenderAdapter(ArrayList<String> dateOfMonth, OnItemListener onItemListener, ColorModel selectedColor) {
         this.dateOfMonth = dateOfMonth;
+        this.selectedcolor = selectedColor;
         this.onItemListener = onItemListener;
-    }
-    public static class Item{
-        String dateOfMonth;
-        boolean isRed;
-        public Item(String dateOfMonth, boolean isRed) {
-            this.dateOfMonth = dateOfMonth;
-            this.isRed = isRed;
-        }
     }
 
     @NonNull
@@ -39,17 +32,16 @@ public class CalenderAdapter extends RecyclerView.Adapter<CalenderViewHolder> {
         View view = inflater.inflate(R.layout.item_calender, parent, false);
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         layoutParams.height = (int)(parent.getHeight() * 0.166666666);
+        myholder = new CalenderViewHolder(view, onItemListener);
         return new CalenderViewHolder(view, onItemListener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CalenderViewHolder holder, int position) {
-        Item item = dateOfMonth.get(position);
-        holder.dayOfMonth.setText(item.dateOfMonth);
-        if (item.isRed) {
-            holder.red.setVisibility(View.VISIBLE);
-        }else
-            holder.red.setVisibility(View.INVISIBLE);
+        holder.dayOfMonth.setText(dateOfMonth.get(position));
+//        if(selectedcolor.isRed()){
+//            holder.red.setVisibility(View.VISIBLE);
+//        }
     }
 
     @Override
@@ -58,6 +50,6 @@ public class CalenderAdapter extends RecyclerView.Adapter<CalenderViewHolder> {
     }
 
     public interface OnItemListener {
-        void onItemClick(int position, String dayText, String selectedColor);
+        void onItemClick(int position, String dayText, ColorModel colormodel);
     }
 }
