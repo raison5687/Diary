@@ -148,6 +148,8 @@ public class WritingFragment extends Fragment {
         } catch (Exception e) {
             Toast.makeText(getContext(), "파일을 못찾음", Toast.LENGTH_LONG).show();
         }
+        binding.test.setImageURI(Uri.parse(img1));
+        Log.i("TESTURI", img1);
     }
 
     public static void writeFile(Context context, String filename, String data) {
