@@ -1,5 +1,6 @@
 package com.example.deardiary;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -8,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.provider.MediaStore;
 import android.util.Log;
@@ -17,10 +19,23 @@ import android.view.ViewGroup;
 
 import com.example.deardiary.databinding.FragmentHomeBinding;
 import com.example.deardiary.databinding.FragmentHomeBinding;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
 
     public FragmentHomeBinding binding;
+    ArrayList<DiaryModel> diaryModels;
 
     public HomeFragment() { }
 
@@ -43,40 +58,54 @@ public class HomeFragment extends Fragment {
     {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
+
+        diaryModels = new ArrayList<DiaryModel>();
+        String path = "/data/data/com.example.deardiary/files/Diaryfile.json";
+        if(new File(path).exists()) {
+            String jsonString = readFile(getContext(), "Diaryfile.json");
+            Gson gson = new Gson();
+            diaryModels = gson.fromJson(jsonString, new TypeToken<ArrayList<DiaryModel>>(){}.getType());
+            Log.i("TEST", "" + diaryModels.size());
+        }
+
+        HomeAdapter adapter = new HomeAdapter(diaryModels);
+        binding.recyclerViewHome.setAdapter(adapter);
+
+        LinearLayoutManager manager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        binding.recyclerViewHome.setLayoutManager(manager);
+
         return view;
-
-//        String title = this.getArguments().getString("title");
-//        String content = this.getArguments().getString("content");
-
-
-
-//        Intent intent = getIntent();
-//
-//        String contentSaved = intent.getStringExtra("content");
-//        binding.writeSaved.setText("" + contentSaved);
-//
-//        String nameSaved = intent.getStringExtra("name");
-//        binding.nameSaved.setText("" + nameSaved);
-//
-//        Uri pictureSaved = intent.getParcelableExtra("picture");
-//        Bitmap picture = loadBitmap(pictureSaved);
-//        binding.pictureSaved.setImageBitmap(picture);
-//        Log.i("picture", "Pic");
     }
 
+    public static String readFile(Context context, String filename) {
+        FileInputStream fis = null;
+        try {
+            fis = context.openFileInput(filename);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return "";
+        }
+        return readStream(fis);
+    }
 
-//
-//    private Bitmap loadBitmap(Uri uri) {
-//        String[] filePathColumn = {MediaStore.Images.Media.DATA};
-//
-//        Cursor cursor = getContentResolver().query(uri,
-//                filePathColumn, null, null, null);
-//        cursor.moveToFirst();
-//
-//        int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-//        String picturePath = cursor.getString(columnIndex);
-//        cursor.close();
-//
-//        return BitmapFactory.decodeFile(picturePath);
-//    }
+    public static String readStream(InputStream inputStream) {
+        String contents = "";
+        InputStreamReader inputStreamReader =
+                new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+        StringBuilder stringBuilder = new StringBuilder();
+
+        try {
+            BufferedReader reader = new BufferedReader(inputStreamReader);
+            String line = reader.readLine();
+            while (line != null) {
+                stringBuilder.append(line).append('\n');
+                line = reader.readLine();
+            }
+        } catch (IOException e) {
+
+        } finally {
+            contents = stringBuilder.toString().trim();
+        }
+        return contents;
+    }
 }

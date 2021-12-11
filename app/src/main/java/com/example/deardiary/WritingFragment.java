@@ -33,6 +33,7 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -74,12 +75,14 @@ public class WritingFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentWritingBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
-        binding.btnWritingSave.setOnClickListener(v -> save());
         binding.btnWritingPlus.setOnClickListener(v -> add());
-
         binding.btnWritingSave.setOnClickListener(v -> save());
-        String jsonString =  readFile(getContext(), "Diaryfile.json");
-        data = new Gson().fromJson(jsonString, new TypeToken<ArrayList<DiaryModel>>(){}.getType());
+        String path = "/data/data/com.example.deardiary/files/Diaryfile.json";
+        if(new File(path).exists()) {
+            String jsonString = readFile(getContext(), "Diaryfile.json");
+            data = new Gson().fromJson(jsonString, new TypeToken<ArrayList<DiaryModel>>() {
+            }.getType());
+        }
         return view;
     }
     private void add(){
@@ -196,4 +199,3 @@ public class WritingFragment extends Fragment {
         return contents;
     }
 }
-
