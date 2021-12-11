@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center">
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imageView"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
@@ -48,34 +48,27 @@
                     android:text="편집"
                     android:layout_gravity="right|bottom"/>
             </FrameLayout>
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <TextView
+                <EditText
                     android:id="@+id/txt_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="최예원"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_centerInParent="true"
                     android:textColor="@color/txt_color"
                     android:textAlignment="center"
                     android:textSize="20dp"
                     android:layout_marginTop="10dp"/>
-
                 <Button
                     android:id="@+id/btn_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text="저장"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/txt_name"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:text="수정"
+                    android:layout_toRightOf="@+id/txt_name" />
+            </RelativeLayout>
         </LinearLayout>
         <View
             android:layout_width="match_parent"

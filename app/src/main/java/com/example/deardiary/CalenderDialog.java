@@ -1,12 +1,11 @@
 package com.example.deardiary;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -15,17 +14,15 @@ import android.widget.TextView;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.DialogFragment;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class CalenderDialog extends DialogFragment
 {
     AlertDialog dialog;
-    Intent data;
     TextView btn_red, btn_yellow, btn_blue, btn_bisque, btn_gray, btn_pink, btn_green, btn_dark_blue;
     AppCompatButton btn_confirm;
-
-    CalenderFragment calenderFragment = new CalenderFragment();
+    Cml mycolor;
+//    public CalenderDialog(ColorModel colorModel) {
+//        this.colorModel = colorModel
+//    }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState)
@@ -73,7 +70,6 @@ public class CalenderDialog extends DialogFragment
                         btn_red.setSelected(false);
                     } else {
                         btn_red.setSelected(true);
-                        calenderFragment.selectedColor = "red";
                     }
                     break;
                 case R.id.btn_bisque :
@@ -133,19 +129,24 @@ public class CalenderDialog extends DialogFragment
         @Override
         public void onClick(View v)
         {
-            data = new Intent();
-            Boolean[] selects = {btn_red.isSelected(), btn_bisque.isSelected(), btn_blue.isSelected(),
-                    btn_gray.isSelected(), btn_green.isSelected(), btn_pink.isSelected(), btn_yellow.isSelected(),
-                    btn_dark_blue.isSelected()};
-
-            data.putExtra("selects", selects);
-            getTargetFragment().onActivityResult(10, Activity.RESULT_OK, data);
+            Boolean red = btn_red.isSelected();
+            Boolean bisque = btn_bisque.isSelected();
+            Boolean blue = btn_blue.isSelected();
+            Boolean gray = btn_gray.isSelected();
+            Boolean green = btn_green.isSelected();
+            Boolean pink = btn_pink.isSelected();
+            Boolean yellow = btn_yellow.isSelected();
+            Boolean darkblue = btn_dark_blue.isSelected();
+            ColorModel model = new ColorModel(red, bisque, blue, gray,
+                    green, pink, yellow, darkblue);
+            mycolor.finish(model);
             dialog.dismiss();
         }
     };
-
-
-
-
-
+    public void setcolor(Cml colorModel) {
+        mycolor = colorModel;
+    }
+    public interface Cml {
+        void finish(ColorModel model);
+    }
 }

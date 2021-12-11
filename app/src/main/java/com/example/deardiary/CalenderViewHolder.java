@@ -33,10 +33,8 @@ public class CalenderViewHolder extends RecyclerView.ViewHolder implements View.
 
     @Override
     public void onClick(View v) {
-        String selectedColor = "";
-        onItemListener.onItemClick(getAdapterPosition(), (String) dayOfMonth.getText(), selectedColor);
-        if(selectedColor.equals("red")) {
-            red.setVisibility(View.VISIBLE);
-        }
+        ColorModel colorModel = null;
+        onItemListener.onItemClick(getAdapterPosition(), (String) dayOfMonth.getText(), colorModel);
+
     }
 }

@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,6 +26,9 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.Target;
 import com.example.deardiary.databinding.FragmentMypageBinding;
 
 import static android.app.Activity.RESULT_OK;
@@ -58,24 +62,25 @@ public class MyPageFragment extends Fragment {
         binding = FragmentMypageBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
+
+
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE) !=
-                PackageManager.PERMISSION_GRANTED){
-            requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE);
-        }
-
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if(ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA) ==
-                    PackageManager.PERMISSION_GRANTED &&
-                    ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
-                            PackageManager.PERMISSION_GRANTED) {
-                Log.d(TAG, "권한 설정 완료");
-            } else {
-                Log.d(TAG, "권한 설정 요청");
-                ActivityCompat.requestPermissions(getActivity(), new String[]
-                        {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                    PackageManager.PERMISSION_GRANTED){
+                requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE);
             }
-        }
 
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if(ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA) ==
+                        PackageManager.PERMISSION_GRANTED &&
+                        ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
+                                PackageManager.PERMISSION_GRANTED) {
+                    Log.d(TAG, "권한 설정 완료");
+                } else {
+                    Log.d(TAG, "권한 설정 요청");
+                    ActivityCompat.requestPermissions(getActivity(), new String[]
+                            {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                }
+        }
 
         binding.btnImage.setOnClickListener( v -> getImage());
         binding.btnName.setOnClickListener( v -> nameClick());
@@ -83,6 +88,7 @@ public class MyPageFragment extends Fragment {
 
         return view;
     }
+
 
     public void nameClick(){
 //        String name = binding.txtName.setText();
@@ -103,6 +109,7 @@ public class MyPageFragment extends Fragment {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
         resultLauncher.launch(intent);
+
 
         switch (R.id.btn_image) {
             case R.id.btn_image:
@@ -130,8 +137,22 @@ public class MyPageFragment extends Fragment {
 
                         if (result.getResultCode() == RESULT_OK && null != data) {
                             Uri selectedImage = data.getData();
+
+<<<<<<< HEAD
+                            // Bitmap bitmap = loadBitmap(selectedImage);
+                            // Glide.with(this)
+                            //         .load(selectedImage)
+                            //         .circleCrop()
+                            //         .into(binding.imageView);
+//                            binding.imageView.setImageBitmap(bitmap);
+=======
                             Bitmap bitmap = loadBitmap(selectedImage);
+                            Glide.with(this)
+                                    .load(selectedImage)
+                                    .circleCrop()
+                                    .into(binding.imageView);
                             binding.imageView.setImageBitmap(bitmap);
+>>>>>>> 3203788cadc66484b4d5cebf26f0d9840d67be0b
                         }
                     });
 

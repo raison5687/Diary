@@ -83,6 +83,7 @@ public class WritingFragment extends Fragment {
             data = new Gson().fromJson(jsonString, new TypeToken<ArrayList<DiaryModel>>() {
             }.getType());
         }
+
         return view;
     }
     private void add(){
@@ -142,17 +143,8 @@ public class WritingFragment extends Fragment {
         DiaryModel model = new DiaryModel(title, content, img1, img2, img3, date);
         this.data.add(model);
         try {
-//            Map<String, Object> map = new HashMap<>();
-//            map.put("title", title);
-//            map.put("content", content);
-//            map.put("img1", img1);
-//            map.put("img2", img2);
-//            map.put("img3", img3);
-//            map.put("date", date);
-
             String jsonString = new Gson().toJson(data);
             writeFile(getContext(), "Diaryfile.json", jsonString);
-
         } catch (Exception e) {
             Toast.makeText(getContext(), "파일을 못찾음", Toast.LENGTH_LONG).show();
         }
