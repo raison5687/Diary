@@ -1,9 +1,5 @@
 package com.example.deardiary;
 
-import android.net.Uri;
-
-import java.util.Date;
-
 public class DiaryModel {
 
     private String title;

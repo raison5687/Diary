@@ -85,7 +85,6 @@ public class MyPageFragment extends Fragment {
         binding.btnImage.setOnClickListener( v -> getImage());
         binding.btnName.setOnClickListener( v -> nameClick());
         binding.btnNote.setOnClickListener( v -> noteClick());
-
         return view;
     }
 

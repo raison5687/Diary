@@ -75,8 +75,8 @@ public class WritingFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentWritingBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
-        binding.btnWritingSave.setOnClickListener(v -> save());
         binding.btnWritingPlus.setOnClickListener(v -> add());
+        binding.btnWritingSave.setOnClickListener(v -> save());
         String path = "/data/data/com.example.deardiary/files/Diaryfile.json";
         if(new File(path).exists()) {
             String jsonString = readFile(getContext(), "Diaryfile.json");
@@ -191,4 +191,3 @@ public class WritingFragment extends Fragment {
         return contents;
     }
 }
-
