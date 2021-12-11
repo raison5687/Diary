@@ -65,21 +65,21 @@ public class MyPageFragment extends Fragment {
 
 
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE) !=
-                PackageManager.PERMISSION_GRANTED){
-            requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE);
-        }
-
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if(ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA) ==
-                    PackageManager.PERMISSION_GRANTED &&
-                    ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
-                            PackageManager.PERMISSION_GRANTED) {
-                Log.d(TAG, "권한 설정 완료");
-            } else {
-                Log.d(TAG, "권한 설정 요청");
-                ActivityCompat.requestPermissions(getActivity(), new String[]
-                        {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                    PackageManager.PERMISSION_GRANTED){
+                requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE);
             }
+
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if(ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA) ==
+                        PackageManager.PERMISSION_GRANTED &&
+                        ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
+                                PackageManager.PERMISSION_GRANTED) {
+                    Log.d(TAG, "권한 설정 완료");
+                } else {
+                    Log.d(TAG, "권한 설정 요청");
+                    ActivityCompat.requestPermissions(getActivity(), new String[]
+                            {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                }
         }
 
         binding.btnImage.setOnClickListener( v -> getImage());
@@ -137,7 +137,6 @@ public class MyPageFragment extends Fragment {
 
                         if (result.getResultCode() == RESULT_OK && null != data) {
                             Uri selectedImage = data.getData();
-                            Glide.with(this).load(selectedImage).apply(RequestOption().circleCrop()).into(binding.imageView);
 
                             // Bitmap bitmap = loadBitmap(selectedImage);
                             // Glide.with(this)
@@ -153,11 +152,7 @@ public class MyPageFragment extends Fragment {
         Cursor cursor = getActivity().getContentResolver().query(uri,
                 filePathColumn, null, null, null);
         cursor.moveToFirst();
-//        Glide.with(this).load(uri).apply(RequestOptions.circleCropTransform()).into(binding.imageView);
-//        Glide.with(this)
-//                .load(uri)
-//                .circleCrop()
-//                .into(binding.imageView);
+
         int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
         String picturePath = cursor.getString(columnIndex);
         cursor.close();

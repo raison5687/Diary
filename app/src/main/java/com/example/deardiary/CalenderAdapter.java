@@ -13,15 +13,12 @@ import java.util.ArrayList;
 
 public class CalenderAdapter extends RecyclerView.Adapter<CalenderViewHolder> {
 
-    public final ArrayList<String> dateOfMonth;
+    public final ArrayList<DateModel> dateOfMonth;
     public final OnItemListener onItemListener;
-    public ColorModel selectedcolor;
     public CalenderViewHolder myholder;
 
-
-    public CalenderAdapter(ArrayList<String> dateOfMonth, OnItemListener onItemListener, ColorModel selectedColor) {
+    public CalenderAdapter(ArrayList<DateModel> dateOfMonth, OnItemListener onItemListener) {
         this.dateOfMonth = dateOfMonth;
-        this.selectedcolor = selectedColor;
         this.onItemListener = onItemListener;
     }
 
@@ -38,10 +35,34 @@ public class CalenderAdapter extends RecyclerView.Adapter<CalenderViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CalenderViewHolder holder, int position) {
-        holder.dayOfMonth.setText(dateOfMonth.get(position));
-//        if(selectedcolor.isRed()){
-//            holder.red.setVisibility(View.VISIBLE);
-//        }
+        DateModel value = dateOfMonth.get(position);
+        holder.dayOfMonth.setText(value.getDate());
+        if(value.getColorModel() != null) {
+            if(value.getColorModel().isRed()) {
+                holder.red.setVisibility(View.VISIBLE);
+            }
+            if(value.getColorModel().isBisque()) {
+                holder.bisque.setVisibility(View.VISIBLE);
+            }
+            if(value.getColorModel().isBlue()) {
+                holder.blue.setVisibility(View.VISIBLE);
+            }
+            if(value.getColorModel().isGray()) {
+                holder.gray.setVisibility(View.VISIBLE);
+            }
+            if(value.getColorModel().isGreen()) {
+                holder.green.setVisibility(View.VISIBLE);
+            }
+            if(value.getColorModel().isPink()) {
+                holder.pink.setVisibility(View.VISIBLE);
+            }
+            if(value.getColorModel().isYellow()) {
+                holder.yellow.setVisibility(View.VISIBLE);
+            }
+            if(value.getColorModel().isDarkblue()) {
+                holder.darkblue.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
     @Override

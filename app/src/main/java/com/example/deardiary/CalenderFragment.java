@@ -3,6 +3,7 @@ package com.example.deardiary;
 import android.app.AlertDialog;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Locale;
 
 public class CalenderFragment extends Fragment implements CalenderAdapter.OnItemListener {
@@ -51,8 +53,6 @@ public class CalenderFragment extends Fragment implements CalenderAdapter.OnItem
         return view;
     }
 
-
-
     private static class CalenderFragmentHolder {
         public static final CalenderFragment INSTANCE = new CalenderFragment();
     }
@@ -78,9 +78,9 @@ public class CalenderFragment extends Fragment implements CalenderAdapter.OnItem
     private void setMonthView()
     {
         txt_monthYear.setText(monthYearFromData(selectedDate));
-        ArrayList<String> daysInMonth = daysInMonthArray(selectedDate);
+        ArrayList<DateModel> daysInMonth = daysInMonthArray(selectedDate);
 
-        calenderAdapter = new CalenderAdapter(daysInMonth, this, selectedColor);
+        calenderAdapter = new CalenderAdapter(daysInMonth, this);
 
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 7);
         calenderRecyclerview.setLayoutManager(layoutManager);
@@ -89,9 +89,9 @@ public class CalenderFragment extends Fragment implements CalenderAdapter.OnItem
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private ArrayList<String> daysInMonthArray(LocalDate date)
+    private ArrayList<DateModel> daysInMonthArray(LocalDate date)
     {
-        ArrayList<String> daysInMonthArray = new ArrayList<>();
+        ArrayList<DateModel> daysInMonthArray = new ArrayList<>();
         YearMonth yearMonth = YearMonth.from(date);
         int daysInMonth = yearMonth.lengthOfMonth();
         LocalDate firstOfMonth = selectedDate.withDayOfMonth(1);
@@ -100,11 +100,11 @@ public class CalenderFragment extends Fragment implements CalenderAdapter.OnItem
         {
             if(i <= dayOfWeek || i > daysInMonth + dayOfWeek)
             {
-                daysInMonthArray.add("");
+                daysInMonthArray.add(new DateModel(" ", selectedColor));
             }
             else
             {
-                daysInMonthArray.add(String.valueOf(i - dayOfWeek));
+                daysInMonthArray.add(new DateModel(String.valueOf(i - dayOfWeek), selectedColor));
             }
         }
         return daysInMonthArray;
@@ -136,23 +136,16 @@ public class CalenderFragment extends Fragment implements CalenderAdapter.OnItem
         {
             Toast.makeText(getContext(), "날짜를 정확히 터치해주세요", Toast.LENGTH_SHORT).show();
         } else {
-            showDialog();
+            CalenderDialog dialog =  new CalenderDialog();
+            dialog.setTargetFragment(this, 10);
+            dialog.show(getFragmentManager(), "dialog");
+            dialog.setcolor(new CalenderDialog.Cml(){
+                @Override
+                public void finish(ColorModel model){
+                    calenderAdapter.dateOfMonth.set(position, new DateModel(dayText, model));
+                    calenderAdapter.notifyDataSetChanged();
+                }
+            });
         }
     }
-
-    public void showDialog()
-    {
-        ColorModel colorModel = new ColorModel(false, false, false, false, false, false, false, false);
-        CalenderDialog dialog =  new CalenderDialog();
-        dialog.setTargetFragment(this, 10);
-        dialog.show(getFragmentManager(), "dialog");
-        dialog.setcolor(new CalenderDialog.Cml(){
-            @Override
-            public void finish(ColorModel model){
-                calenderAdapter.selectedcolor = model;
-                calenderAdapter.notifyDataSetChanged();
-            }
-        });
-    }
-
 }
