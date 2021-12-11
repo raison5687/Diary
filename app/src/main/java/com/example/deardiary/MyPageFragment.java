@@ -85,7 +85,6 @@ public class MyPageFragment extends Fragment {
         binding.btnImage.setOnClickListener( v -> getImage());
         binding.btnName.setOnClickListener( v -> nameClick());
         binding.btnNote.setOnClickListener( v -> noteClick());
-
         return view;
     }
 
@@ -137,22 +136,12 @@ public class MyPageFragment extends Fragment {
 
                         if (result.getResultCode() == RESULT_OK && null != data) {
                             Uri selectedImage = data.getData();
-
-<<<<<<< HEAD
-                            // Bitmap bitmap = loadBitmap(selectedImage);
-                            // Glide.with(this)
-                            //         .load(selectedImage)
-                            //         .circleCrop()
-                            //         .into(binding.imageView);
-//                            binding.imageView.setImageBitmap(bitmap);
-=======
                             Bitmap bitmap = loadBitmap(selectedImage);
                             Glide.with(this)
                                     .load(selectedImage)
                                     .circleCrop()
                                     .into(binding.imageView);
                             binding.imageView.setImageBitmap(bitmap);
->>>>>>> 3203788cadc66484b4d5cebf26f0d9840d67be0b
                         }
                     });
 
