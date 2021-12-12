@@ -81,22 +81,40 @@ public class MyPageFragment extends Fragment {
                             {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
                 }
         }
-
+        binding.txtName.setEnabled(false);
+        binding.txtNote.setEnabled(false);
         binding.btnImage.setOnClickListener( v -> getImage());
         binding.btnName.setOnClickListener( v -> nameClick());
         binding.btnNote.setOnClickListener( v -> noteClick());
+        binding.btnNotesave.setOnClickListener(v -> notesave());
+        binding.btnSave.setOnClickListener(v -> save());
         return view;
     }
 
 
     public void nameClick(){
-
+        binding.txtName.setEnabled(true);
+        binding.txtName.setText(null);
+        binding.btnName.setVisibility(View.GONE);
+        binding.btnSave.setVisibility(View.VISIBLE);
+    }
+    public void save(){
+        binding.txtName.setEnabled(false);
+        binding.btnSave.setVisibility(View.GONE);
+        binding.btnName.setVisibility(View.VISIBLE);
     }
 
     public void noteClick(){
-        binding.btnNote.setText("편집");
+        binding.txtNote.setEnabled(true);
+        binding.txtNote.setText(null);
+        binding.btnNote.setVisibility(View.GONE);
+        binding.btnNotesave.setVisibility(View.VISIBLE);
     }
-
+    public void notesave(){
+        binding.txtNote.setEnabled(false);
+        binding.btnNotesave.setVisibility(View.GONE);
+        binding.btnNote.setVisibility(View.VISIBLE);
+    }
 
     public void getImage(){
 
