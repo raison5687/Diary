@@ -5,7 +5,8 @@
     <size
         android:width="8dp"
         android:height="8dp" />
+    <solid android:color="@color/paddingforimage" />
     <stroke
-        android:width="0.2dp"
+        android:width="6dp"
         android:color="@color/black" />
 </shape>

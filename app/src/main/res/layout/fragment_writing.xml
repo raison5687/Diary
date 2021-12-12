@@ -8,15 +8,23 @@
     android:padding="20dp"
     android:weightSum="6">
 
-    <TextView
-        android:id="@+id/txt_writingDate"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:gravity="bottom|center"
-        android:padding="20dp"
-        android:textSize="45dp" />
-
+        android:background="@drawable/shape_group_writing_date"
+        android:layout_marginBottom="10dp">
+        <TextView
+            android:id="@+id/txt_writingDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2021.11.19"
+            android:textSize="30dp"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/white"
+            android:gravity="bottom|center"
+            android:paddingBottom="7dp"/>
+    </FrameLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -29,33 +37,53 @@
             android:layout_height="match_parent"
             android:layout_weight="1.25"
             android:orientation="vertical"
-            android:padding="10dp"
+            android:paddingTop="10dp"
+            android:paddingHorizontal="10dp"
             android:weightSum="5">
-
-            <EditText
-                android:id="@+id/editTxt_writingTitle"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.5"
-                android:hint="제목"
-                android:textAlignment="center"
-                android:background="@android:color/transparent"/>
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4.5">
-
-                <EditText
-                    android:id="@+id/editTxt_writingContent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/shape_group_writing_txt">
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="top"
-                    android:hint="오늘을 기록하세요"
-                    android:lineSpacingExtra="10dp"
-                    android:background="@android:color/transparent"/>
-                <!--                    android:background="null"-->
-            </ScrollView>
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5">
+                    <EditText
+                        android:id="@+id/editTxt_writingTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="제목"
+                        android:textAlignment="center"
+                        android:background="@android:color/transparent"/>
+                </FrameLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="2dp"
+                    android:background="@color/black" />
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4.5">
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="2dp">
+                        <EditText
+                            android:id="@+id/editTxt_writingContent"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="top"
+                            android:hint="오늘을 기록하세요"
+                            android:lineSpacingExtra="10dp"
+                            android:padding="5dp"
+                            android:textSize="12dp"
+                            android:background="@android:color/transparent"/>
+                    </FrameLayout>
+                </ScrollView>
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -66,57 +94,70 @@
             android:weightSum="5"
             android:padding="5dp">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="0.5"
                 android:orientation="horizontal">
 
-                <Button
+                <ImageView
                     android:id="@+id/btn_writingPlus"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:text="+"
+                    android:background="@drawable/add"
+                    android:layout_centerInParent="true"
+                    android:clickable="true"
                     android:textSize="20sp" />
 
-                <Button
+                <ImageView
                     android:id="@+id/btn_writingSave"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:text="o"
+                    android:clickable="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/check"
                     android:textSize="20sp" />
-            </LinearLayout>
+            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="4.5"
-                android:orientation="vertical">
+                android:background="@color/paddingforimage"
+                android:orientation="vertical"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="5dp"
+                android:clipToPadding="false">
 
                 <ImageView
                     android:id="@+id/img1"
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
                     android:scaleType="centerCrop"
-                    android:elevation="10dp"
-                    android:visibility="gone" />
+                    android:elevation="2dp"
+                    android:visibility="gone"
+                    android:layout_marginBottom="5dp"/>
 
                 <ImageView
                     android:id="@+id/img2"
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
                     android:scaleType="centerCrop"
-                    android:elevation="10dp"
-                    android:visibility="gone" />
+                    android:elevation="2dp"
+                    android:visibility="gone"
+                    android:layout_marginBottom="5dp"/>
 
                 <ImageView
                     android:id="@+id/img3"
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
                     android:scaleType="centerCrop"
-                    android:elevation="10dp"
-                    android:visibility="gone" />
-
+                    android:elevation="2dp"
+                    android:visibility="gone"
+                    android:layout_marginBottom="5dp"/>
 
             </LinearLayout>
         </LinearLayout>

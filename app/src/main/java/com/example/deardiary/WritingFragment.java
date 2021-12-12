@@ -81,7 +81,7 @@ public class WritingFragment extends Fragment {
         binding.btnWritingPlus.setOnClickListener(v -> add());
         binding.btnWritingSave.setOnClickListener(v -> save());
         long time = System.currentTimeMillis();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd");
         String date = dateFormat.format(time);
         binding.txtWritingDate.setText(date);
         String path = "/data/data/com.example.deardiary/files/Diaryfile.json";

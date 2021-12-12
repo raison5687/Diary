@@ -91,7 +91,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         }
     }
     public String MillToDate(long mills) {
-        String pattern = "yyyy-MM-dd HH:mm";
+        String pattern = "yyyy.MM.dd";
         SimpleDateFormat formatter = new SimpleDateFormat(pattern);
         String date = formatter.format(mills);
         return date;

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-
+    <color name="white">#F3EBE4</color>
+    F3EBE4
     <!--COLOR ADDED-->
     <color name="background_color">#D6D6D6</color>
     <color name="dark_gray">#707070</color>
@@ -26,4 +26,5 @@
     <color name="green_selected">#84DB8B</color>
     <color name="gray_selected">#6F6F6F</color>
     <color name="bisque_selected">#EA9F12</color>
+    <color name="paddingforimage">#FFFFFFFF</color>
 </resources>
