@@ -13,8 +13,6 @@
     </style>
 
 
-
-
     <!--setting-->
     <style name="txt_setting">
         <item name="android:layout_width">wrap_content</item>
