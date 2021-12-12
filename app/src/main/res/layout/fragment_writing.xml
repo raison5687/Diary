@@ -95,6 +95,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:scaleType="centerCrop"
+                    android:elevation="10dp"
                     android:visibility="gone" />
 
                 <ImageView
@@ -102,6 +103,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:scaleType="centerCrop"
+                    android:elevation="10dp"
                     android:visibility="gone" />
 
                 <ImageView
@@ -109,13 +111,10 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:scaleType="centerCrop"
+                    android:elevation="10dp"
                     android:visibility="gone" />
 
-                <ImageView
-                    android:id="@+id/test"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:scaleType="centerCrop" />
+
             </LinearLayout>
         </LinearLayout>
 

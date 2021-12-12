@@ -20,9 +20,6 @@ public class CalenderDialog extends DialogFragment
     TextView btn_red, btn_yellow, btn_blue, btn_bisque, btn_gray, btn_pink, btn_green, btn_dark_blue;
     AppCompatButton btn_confirm;
     Cml mycolor;
-//    public CalenderDialog(ColorModel colorModel) {
-//        this.colorModel = colorModel
-//    }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState)

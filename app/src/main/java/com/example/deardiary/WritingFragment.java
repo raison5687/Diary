@@ -110,22 +110,18 @@ public class WritingFragment extends Fragment {
                     } else {
                         image3 = uriToPath(selectedImage);
                     }
-//                    Bitmap bitmap = loadBitmap(selectedImage);
                     if(binding.img1.getVisibility() != View.VISIBLE) {
-//                        binding.img1.setImageBitmap(bitmap);
                         Glide.with(getContext())
                                 .load(image1)
                                 .into(binding.img1);
                         binding.img1.setVisibility(View.VISIBLE);
                     }
                     else if(binding.img2.getVisibility() != View.VISIBLE) {
-//                        binding.img2.setImageBitmap(bitmap);
                         Glide.with(getContext())
                                 .load(image2)
                                 .into(binding.img2);
                         binding.img2.setVisibility(View.VISIBLE);
                     } else {
-//                        binding.img3.setImageBitmap(bitmap);
                         Glide.with(getContext())
                                 .load(image3)
                                 .into(binding.img3);

@@ -53,16 +53,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.binding.txtHomeTitle.setText(diaryModels.get(position).getTitle());
         holder.binding.txtHomeDate.setText(diaryModels.get(position).getDate().toString());
         holder.binding.txtHomeContent.setText(diaryModels.get(position).getContent());
-//        Glide.with(holder.binding.imgHome1)
-//                .asBitmap()
-//                .load(diaryModels.get(position).getImg1())
-//                .into(holder.binding.imgHome1);
-//        Glide.with(holder.binding.imgHome2).asBitmap()
-//                .load(diaryModels.get(position).getImg1())
-//                .into(holder.binding.imgHome2);
-//        Glide.with(holder.binding.imgHome3).asBitmap()
-//                .load(diaryModels.get(position).getImg1())
-//                .into(holder.binding.imgHome3);
         long mills = diaryModels.get(position).getDate();
 
         String date = MillToDate(mills);
