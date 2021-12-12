@@ -98,46 +98,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
                     android:scaleType="centerCrop"
-<<<<<<< HEAD
                     android:elevation="10dp"
                     android:visibility="gone" />
-=======
-                    android:visibility="gone"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:elevation="10dp"/>
->>>>>>> 856970f74dfc4e71aa52a7e6daac81f755f251e7
 
                 <ImageView
                     android:id="@+id/img2"
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
                     android:scaleType="centerCrop"
-<<<<<<< HEAD
                     android:elevation="10dp"
                     android:visibility="gone" />
-=======
-                    android:visibility="gone"
-                    android:layout_marginBottom="20dp"
-                    android:elevation="10dp"/>
->>>>>>> 856970f74dfc4e71aa52a7e6daac81f755f251e7
 
                 <ImageView
                     android:id="@+id/img3"
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
                     android:scaleType="centerCrop"
-<<<<<<< HEAD
                     android:elevation="10dp"
                     android:visibility="gone" />
 
 
-=======
-                    android:visibility="gone"
-                    android:layout_marginBottom="20dp"
-                    android:elevation="10dp"/>
-
->>>>>>> 856970f74dfc4e71aa52a7e6daac81f755f251e7
             </LinearLayout>
         </LinearLayout>
 

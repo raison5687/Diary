@@ -2,12 +2,8 @@
 <shape
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-<<<<<<< HEAD
     <solid android:color="@color/white" />
-=======
 
 <!--    <corners android:radius="100dp" />-->
     <solid android:color="@color/white" />
-
->>>>>>> 856970f74dfc4e71aa52a7e6daac81f755f251e7
 </shape>
