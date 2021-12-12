@@ -1,16 +1,13 @@
 package com.example.deardiary;
 
-<<<<<<< HEAD
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-=======
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.ImageDecoder;
->>>>>>> 705f7fb265164f2d9b536a191c8678e593d625fc
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -57,27 +54,17 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.binding.txtHomeTitle.setText(diaryModels.get(position).getTitle());
         holder.binding.txtHomeDate.setText(diaryModels.get(position).getDate().toString());
         holder.binding.txtHomeContent.setText(diaryModels.get(position).getContent());
+//        Glide.with(holder.binding.imgHome1)
+//                .asBitmap()
+//                .load(diaryModels.get(position).getImg1())
+//                .into(holder.binding.imgHome1);
+//        Glide.with(holder.binding.imgHome2).asBitmap()
+//                .load(diaryModels.get(position).getImg1())
+//                .into(holder.binding.imgHome2);
+//        Glide.with(holder.binding.imgHome3).asBitmap()
+//                .load(diaryModels.get(position).getImg1())
+//                .into(holder.binding.imgHome3);
 
-<<<<<<< HEAD
-
-
-        Glide.with(holder.binding.imgHome1)
-                .asBitmap()
-                .load(diaryModels.get(position).getImg1())
-                .into(holder.binding.imgHome1);
-//        Log.i("TEST", "" + );
-        Glide.with(holder.binding.imgHome2).asBitmap()
-                .load(diaryModels.get(position).getImg1())
-                .into(holder.binding.imgHome2);
-        Glide.with(holder.binding.imgHome3).asBitmap()
-                .load(diaryModels.get(position).getImg1())
-                .into(holder.binding.imgHome3);
-
-//        Uri img1 = intent.getParcelableExtra("picture");
-//        Bitmap picture = loadBitmap(pictureSaved);
-//        binding.pictureSaved.setImageBitmap(picture);
-//        Log.i("picture", "Pic");
-=======
         String image1 = diaryModels.get(position).getImg1();
         String image2 = diaryModels.get(position).getImg2();
         String image3 = diaryModels.get(position).getImg3();
@@ -95,7 +82,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
                 .load(image3)
                 .into(holder.binding.imgHome3);
 
->>>>>>> 705f7fb265164f2d9b536a191c8678e593d625fc
     }
 
     @Override

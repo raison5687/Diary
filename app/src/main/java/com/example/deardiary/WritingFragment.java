@@ -160,24 +160,7 @@ public class WritingFragment extends Fragment {
         } catch (Exception e) {
             Toast.makeText(getContext(), "파일을 못찾음", Toast.LENGTH_LONG).show();
         }
-<<<<<<< HEAD
 
-
-//        Intent intent = new Intent(this, PostActivity.class);
-//
-//        String content = binding.editTextContent.getText().toString();
-//        intent.putExtra("content", content);
-//
-//        String name = binding.editTextName.getText().toString();
-//        intent.putExtra("name", name);
-//
-//        intent.putExtra("picture", picture);
-//
-//        startActivity(intent);
-=======
-        binding.test.setImageURI(Uri.parse(img1));
-        Log.i("TESTURI", img1);
->>>>>>> 705f7fb265164f2d9b536a191c8678e593d625fc
     }
 
     public static void writeFile(Context context, String filename, String data) {
