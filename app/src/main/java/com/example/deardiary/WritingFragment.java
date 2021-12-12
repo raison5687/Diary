@@ -45,6 +45,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -78,6 +80,10 @@ public class WritingFragment extends Fragment {
         View view = binding.getRoot();
         binding.btnWritingPlus.setOnClickListener(v -> add());
         binding.btnWritingSave.setOnClickListener(v -> save());
+        long time = System.currentTimeMillis();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String date = dateFormat.format(time);
+        binding.txtWritingDate.setText(date);
         String path = "/data/data/com.example.deardiary/files/Diaryfile.json";
         if(new File(path).exists()) {
             String jsonString = readFile(getContext(), "Diaryfile.json");

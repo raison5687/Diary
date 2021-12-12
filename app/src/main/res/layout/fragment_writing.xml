@@ -15,7 +15,6 @@
         android:layout_weight="1"
         android:gravity="bottom|center"
         android:padding="20dp"
-        android:text="2021.11.18"
         android:textSize="45dp" />
 
     <LinearLayout
