@@ -56,23 +56,17 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         String image2 = diaryModels.get(position).getImg2();
         String image3 = diaryModels.get(position).getImg3();
 
-        Uri u1 = Uri.parse(image1);
-        Uri u2 = Uri.parse(image2);
-        Uri u3 = Uri.parse(image3);
-
-//        Log.i("ADAPTERURI", u1.toString());
-//        holder.binding.imgHome2.setImageURI(u2);
-//        holder.binding.imgHome3.setImageURI(u3);
+        Log.i("ADAPTERURI", image1);
         Glide.with(context)
-                .load(u1)
+                .load(image1)
                 .into(holder.binding.imgHome1);
 
         Glide.with(context)
-                .load(u2)
+                .load(image2)
                 .into(holder.binding.imgHome2);
 
         Glide.with(context)
-                .load(u3)
+                .load(image3)
                 .into(holder.binding.imgHome3);
 
     }

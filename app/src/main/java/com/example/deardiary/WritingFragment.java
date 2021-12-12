@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.deardiary.databinding.FragmentWritingBinding;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -50,9 +51,9 @@ import java.util.Map;
 
 public class WritingFragment extends Fragment {
     public FragmentWritingBinding binding;
-    Uri image1 = null;
-    Uri image2 = null;
-    Uri image3 = null;
+    String image1 = null;
+    String image2 = null;
+    String image3 = null;
     private ArrayList<DiaryModel> data = new ArrayList<>();
 
     public WritingFragment(){}
@@ -83,7 +84,6 @@ public class WritingFragment extends Fragment {
             data = new Gson().fromJson(jsonString, new TypeToken<ArrayList<DiaryModel>>() {
             }.getType());
         }
-
         return view;
     }
     private void add(){
@@ -98,28 +98,37 @@ public class WritingFragment extends Fragment {
                 if (result.getResultCode() == RESULT_OK && null != data) {
                     Uri selectedImage = data.getData();
                     if(image1 == null) {
-                        image1 = selectedImage;
+                        image1 = uriToPath(selectedImage);
                     } else if(image2 == null) {
-                        image2 = selectedImage;
+                        image2 = uriToPath(selectedImage);
                     } else {
-                        image3 = selectedImage;
+                        image3 = uriToPath(selectedImage);
                     }
-                    Bitmap bitmap = loadBitmap(selectedImage);
+//                    Bitmap bitmap = loadBitmap(selectedImage);
                     if(binding.img1.getVisibility() != View.VISIBLE) {
-                        binding.img1.setImageBitmap(bitmap);
+//                        binding.img1.setImageBitmap(bitmap);
+                        Glide.with(getContext())
+                                .load(image1)
+                                .into(binding.img1);
                         binding.img1.setVisibility(View.VISIBLE);
                     }
                     else if(binding.img2.getVisibility() != View.VISIBLE) {
-                        binding.img2.setImageBitmap(bitmap);
+//                        binding.img2.setImageBitmap(bitmap);
+                        Glide.with(getContext())
+                                .load(image2)
+                                .into(binding.img2);
                         binding.img2.setVisibility(View.VISIBLE);
                     } else {
-                        binding.img3.setImageBitmap(bitmap);
+//                        binding.img3.setImageBitmap(bitmap);
+                        Glide.with(getContext())
+                                .load(image3)
+                                .into(binding.img3);
                         binding.img3.setVisibility(View.VISIBLE);
                     }
                 }
             });
 
-    private Bitmap loadBitmap(Uri uri) {
+    private String uriToPath(Uri uri) {
         String[] filePathColumn = {MediaStore.Images.Media.DATA};
         Cursor cursor = getActivity().getContentResolver().query(uri,
                 filePathColumn, null, null, null);
@@ -129,7 +138,7 @@ public class WritingFragment extends Fragment {
         String picturePath = cursor.getString(columnIndex);
         cursor.close();
 
-        return BitmapFactory.decodeFile(picturePath);
+        return picturePath;
     }
 
     public void save()
