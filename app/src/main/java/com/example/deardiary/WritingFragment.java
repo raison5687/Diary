@@ -137,6 +137,9 @@ public class WritingFragment extends Fragment {
         String title = binding.editTxtWritingTitle.getText().toString();
         String content = binding.editTxtWritingContent.getText().toString();
         String img1 = image1.toString();
+        Uri imgUri1 = Uri.parse(img1);
+        Log.i("TEST", "" + imgUri1);
+
         String img2 = image2.toString();
         String img3 = image3.toString();
         Long date = System.currentTimeMillis();
@@ -148,6 +151,19 @@ public class WritingFragment extends Fragment {
         } catch (Exception e) {
             Toast.makeText(getContext(), "파일을 못찾음", Toast.LENGTH_LONG).show();
         }
+
+
+//        Intent intent = new Intent(this, PostActivity.class);
+//
+//        String content = binding.editTextContent.getText().toString();
+//        intent.putExtra("content", content);
+//
+//        String name = binding.editTextName.getText().toString();
+//        intent.putExtra("name", name);
+//
+//        intent.putExtra("picture", picture);
+//
+//        startActivity(intent);
     }
 
     public static void writeFile(Context context, String filename, String data) {

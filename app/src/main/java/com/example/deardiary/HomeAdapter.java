@@ -1,5 +1,10 @@
 package com.example.deardiary;
 
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,15 +43,24 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.binding.txtHomeDate.setText(diaryModels.get(position).getDate().toString());
         holder.binding.txtHomeContent.setText(diaryModels.get(position).getContent());
 
+
+
         Glide.with(holder.binding.imgHome1)
+                .asBitmap()
                 .load(diaryModels.get(position).getImg1())
                 .into(holder.binding.imgHome1);
-        Glide.with(holder.binding.imgHome2)
+//        Log.i("TEST", "" + );
+        Glide.with(holder.binding.imgHome2).asBitmap()
                 .load(diaryModels.get(position).getImg1())
                 .into(holder.binding.imgHome2);
-        Glide.with(holder.binding.imgHome3)
+        Glide.with(holder.binding.imgHome3).asBitmap()
                 .load(diaryModels.get(position).getImg1())
                 .into(holder.binding.imgHome3);
+
+//        Uri img1 = intent.getParcelableExtra("picture");
+//        Bitmap picture = loadBitmap(pictureSaved);
+//        binding.pictureSaved.setImageBitmap(picture);
+//        Log.i("picture", "Pic");
     }
 
     @Override
