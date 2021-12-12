@@ -26,6 +26,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.security.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
@@ -43,9 +45,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         ItemHomeBinding binding = ItemHomeBinding.inflate(inflater, parent, false);
-//        View view = inflater.inflate(R.layout.item_home, parent, false);
-//        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-//        layoutParams.height = (int)(parent.getHeight() * 0.166666666);
         return new ViewHolder(binding);
     }
 
@@ -54,6 +53,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.binding.txtHomeTitle.setText(diaryModels.get(position).getTitle());
         holder.binding.txtHomeDate.setText(diaryModels.get(position).getDate().toString());
         holder.binding.txtHomeContent.setText(diaryModels.get(position).getContent());
+<<<<<<< HEAD
 //        Glide.with(holder.binding.imgHome1)
 //                .asBitmap()
 //                .load(diaryModels.get(position).getImg1())
@@ -64,6 +64,12 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 //        Glide.with(holder.binding.imgHome3).asBitmap()
 //                .load(diaryModels.get(position).getImg1())
 //                .into(holder.binding.imgHome3);
+=======
+        long mills = diaryModels.get(position).getDate();
+
+        String date = MillToDate(mills);
+        holder.binding.txtHomeDate.setText(date);
+>>>>>>> b858e60eb7f573806a460fddbb57b2bff90ad25e
 
         String image1 = diaryModels.get(position).getImg1();
         String image2 = diaryModels.get(position).getImg2();
@@ -96,5 +102,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             super(binding.getRoot());
             this.binding = binding;
         }
+    }
+    public String MillToDate(long mills) {
+        String pattern = "yyyy-MM-dd HH:mm";
+        SimpleDateFormat formatter = new SimpleDateFormat(pattern);
+        String date = formatter.format(mills);
+        return date;
     }
 }
