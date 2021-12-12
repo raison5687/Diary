@@ -1,8 +1,16 @@
 package com.example.deardiary;
 
+<<<<<<< HEAD
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+=======
+import android.content.Context;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.ImageDecoder;
+>>>>>>> 705f7fb265164f2d9b536a191c8678e593d625fc
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -16,14 +24,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.deardiary.databinding.ItemHomeBinding;
 
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     ArrayList<DiaryModel> diaryModels;
-
-    public HomeAdapter(ArrayList<DiaryModel> data) {
+    Context context;
+    public HomeAdapter(ArrayList<DiaryModel> data, Context context)
+    {
         diaryModels = data;
+        this.context = context;
     }
 
     @NonNull
@@ -43,6 +58,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.binding.txtHomeDate.setText(diaryModels.get(position).getDate().toString());
         holder.binding.txtHomeContent.setText(diaryModels.get(position).getContent());
 
+<<<<<<< HEAD
 
 
         Glide.with(holder.binding.imgHome1)
@@ -61,6 +77,25 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 //        Bitmap picture = loadBitmap(pictureSaved);
 //        binding.pictureSaved.setImageBitmap(picture);
 //        Log.i("picture", "Pic");
+=======
+        String image1 = diaryModels.get(position).getImg1();
+        String image2 = diaryModels.get(position).getImg2();
+        String image3 = diaryModels.get(position).getImg3();
+
+        Log.i("ADAPTERURI", image1);
+        Glide.with(context)
+                .load(image1)
+                .into(holder.binding.imgHome1);
+
+        Glide.with(context)
+                .load(image2)
+                .into(holder.binding.imgHome2);
+
+        Glide.with(context)
+                .load(image3)
+                .into(holder.binding.imgHome3);
+
+>>>>>>> 705f7fb265164f2d9b536a191c8678e593d625fc
     }
 
     @Override
@@ -76,5 +111,4 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             this.binding = binding;
         }
     }
-
 }

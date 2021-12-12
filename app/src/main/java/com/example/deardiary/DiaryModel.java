@@ -1,5 +1,7 @@
 package com.example.deardiary;
 
+import android.net.Uri;
+
 public class DiaryModel {
 
     private String title;

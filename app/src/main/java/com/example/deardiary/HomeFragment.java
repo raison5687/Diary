@@ -72,10 +72,8 @@ public class HomeFragment extends Fragment {
             String jsonString = readFile(getContext(), "Diaryfile.json");
             Gson gson = new Gson();
             diaryModels = gson.fromJson(jsonString, new TypeToken<ArrayList<DiaryModel>>(){}.getType());
-            Log.i("TEST", "" + diaryModels.size());
         }
-
-        HomeAdapter adapter = new HomeAdapter(diaryModels);
+        HomeAdapter adapter = new HomeAdapter(diaryModels, getContext());
         binding.recyclerViewHome.setAdapter(adapter);
 
         LinearLayoutManager manager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -109,7 +107,6 @@ public class HomeFragment extends Fragment {
                 line = reader.readLine();
             }
         } catch (IOException e) {
-
         } finally {
             contents = stringBuilder.toString().trim();
         }

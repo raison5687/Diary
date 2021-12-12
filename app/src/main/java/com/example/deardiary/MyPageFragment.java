@@ -90,12 +90,7 @@ public class MyPageFragment extends Fragment {
 
 
     public void nameClick(){
-//        String name = binding.txtName.setText();
-//        if(){
-//
-//            binding.btnName.setText("편집");
-//        }
-//        binding.btnName.setText("편집");
+
     }
 
     public void noteClick(){
